@@ -226,3 +226,16 @@
   (cond ((< n 3) n)
         (else (f-iter 2 1 0 (- n 2))))
 )
+
+
+; Exercise 1.12
+; see https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_thm_1.12
+;
+; Answer:
+
+(define (pascal-triangle row col)
+  (cond ((or (= col 0) (= col row)) 1)
+        (else (+ (pascal-triangle (- row 1) (- col 1))
+                 (pascal-triangle (- row 1) col)))
+  )
+)

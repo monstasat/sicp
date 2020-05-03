@@ -1,4 +1,4 @@
-;; Excercise 1.1
+;; Exercise 1.1
 ;; Below is a sequence of expressions.
 ;; What is the result printed by the interpreter in response to each expression?
 ;; Assume that the sequence is to be evaluated in the order in which it is presented.
@@ -51,7 +51,7 @@
 ; 16
 
 
-;; Excercise 1.2
+;; Exercise 1.2
 ;; Translate the following expression into prefix form
 
 ; 5 + 4 + (2 - (3 - (6 + 4/5)))
@@ -63,7 +63,7 @@
    (* 3 (- 6 2) (- 2 7))
 )
 
-;; Excercise 1.3
+;; Exercise 1.3
 ;; Define a procedure that takes three numbers as arguments
 ;; and returns the sum of the squares of the two larger numbers.
 
@@ -80,7 +80,7 @@
   )
 )
 
-;; Excercise 1.4
+;; Exercise 1.4
 ;; Observe that our model of evaluation allows for combinations whose operators are compound expressions.
 ;; Use this observation to describe the behavior of the following procedure:
 
@@ -118,7 +118,7 @@
 ; when normal-order evaluation is used, expression will never terminate, since
 ; (p) always resolves to itself.
 
-;; Exsercise 1.6
+;; Exercise 1.6
 ;; see https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-10.html#%_thm_1.6
 
 ; Answer
@@ -126,3 +126,29 @@
 ; That is not true for 'new-if' procedure.
 ; In 'sqrt-iter', implemented with 'new-if', stack overflow will occur since 'sqrt-iter' will
 ; always recursively call itself regardless of predicate result.
+
+;; Exercise 1.7
+
+; TODO
+
+;; Exercise 1.8
+
+; TODO
+
+;; Exercise 1.9
+;; see https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_thm_1.9
+;; (define (+ a b)
+;;   (if (= a 0)
+;;       b
+;;       (inc (+ (dec a) b))))
+
+;; (define (+ a b)
+;;   (if (= a 0)
+;;       b
+;;       (+ (dec a) (inc b))))
+
+; Answer
+; first process is recursive, since '+' procedure needs to wait
+; for the result of itself to finish calculation.
+; second one is iterative, since all data needed for evaluation is available
+; from the scope of the procedure (and from the global scope - procedures 'dec' and 'inc')

@@ -58,6 +58,7 @@
 ; -----------------------------
 ; 3(6 - 2)(2 - 7)
 
+; Answer
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
    (* 3 (- 6 2) (- 2 7))
 )
@@ -66,6 +67,7 @@
 ;; Define a procedure that takes three numbers as arguments
 ;; and returns the sum of the squares of the two larger numbers.
 
+; Answer
 (define (square x) (* x x))
 
 (define (sum_of_squares a b) (+ (square a) (square b)))
@@ -85,7 +87,8 @@
 ;; (define (a-plus-abs-b a b)
 ;;  ((if (> b 0) + -) a b))
 
-;; a-plus-abs-b returns a + b when b > 0 and a - b otherwise
+; Answer
+; a-plus-abs-b returns a + b when b > 0 and a - b otherwise
 
 ;; Exercise 1.5
 ;; Ben Bitdiddle has invented a test to determine whether the interpreter
@@ -110,6 +113,16 @@
 ;; The predicate expression is evaluated first, and the result determines whether to evaluate
 ;; the consequent or the alternative expression.)
 
+; Answer:
 ; when application-order evaluation is used, expression will return zero
 ; when normal-order evaluation is used, expression will never terminate, since
 ; (p) always resolves to itself.
+
+;; Exsercise 1.6
+;; see https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-10.html#%_thm_1.6
+
+; Answer
+; When 'if' special form is used, only expression which satisfies the predicate is evaluated.
+; That is not true for 'new-if' procedure.
+; In 'sqrt-iter', implemented with 'new-if', stack overflow will occur since 'sqrt-iter' will
+; always recursively call itself regardless of predicate result.

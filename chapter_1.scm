@@ -201,3 +201,28 @@
 ; (define (f n) (A 0 n)) - evaluates (2 * n)
 ; (define (g n) (A 1 n)) - evaluates 0 for n = 0, 2^n for n > 1
 ; (define (h n) (A 2 n)) - evaluates 0 for n = 0, 2 for n = 1, 2^(2^n) for n > 1
+
+
+; Exercise 1.11
+; see https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_thm_1.11
+;
+; Answer:
+; Recursive process
+
+(define (f n)
+  (cond ((< n 3) n)
+        (else (+ (f (- n 1)) 
+                 (f (- n 2)) 
+                 (f (- n 3))))
+  )
+)
+
+; Iterative process:
+(define (f n)
+  (define (f-iter a b c count)
+    (cond ((<= count 0) a)
+          (else (f-iter (+ a b c) a b (- count 1))))
+  )
+  (cond ((< n 3) n)
+        (else (f-iter 2 1 0 (- n 2))))
+)
